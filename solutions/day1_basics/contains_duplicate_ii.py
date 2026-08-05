@@ -3,7 +3,12 @@ from typing import List
 
 class Solution:
     def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
-        pass
+        seen = {}
+        for i in range(len(nums)):
+            if(nums[i] in seen and seen.get(nums[i])!= i and abs(i-seen.get(nums[i])) <=k):
+                return True
+            seen[nums[i]] = i
+        return False
 
 
 if __name__ == "__main__":
