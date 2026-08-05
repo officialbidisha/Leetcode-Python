@@ -1,12 +1,12 @@
-from typing import List
-
-
-class Solution:
-    def containsDuplicate(self, nums: List[int]) -> bool:
-        pass
-
-
-if __name__ == "__main__":
-    sol = Solution()
-    print(sol.containsDuplicate([1, 2, 3, 1]))     # expect True
-    print(sol.containsDuplicate([1, 2, 3, 4]))     # expect False
+class Solution(object):
+    def containsDuplicate(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: bool
+        """
+        map = {}
+        for i in range(len(nums)):
+            if map.get(nums[i]) == 1 :
+               return True
+            map[nums[i]] = map.get(nums[i], 0) + 1
+        return False
