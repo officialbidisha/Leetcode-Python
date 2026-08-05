@@ -4,9 +4,9 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        map = {}
+        seen = set()
         for i in range(len(nums)):
-            if map.get(nums[i]) == 1 :
+            if map.get(nums[i]) in seen :
                return True
-            map[nums[i]] = map.get(nums[i], 0) + 1
+            seen.add(nums[i])
         return False
