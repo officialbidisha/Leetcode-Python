@@ -1,2 +1,6 @@
 CHEATSHEET.md
 PLAN.md
+AIRBNB_PREP.md
+.venv/
+__pycache__/
+*.pyc
