@@ -119,3 +119,22 @@ if __name__ == "__main__":
 
     # S == E: no split point can ever exist
     print(sol.splitStayPairs([a, b, c], 5, 5))  # expect []
+
+    # one prefix candidate matching multiple suffix candidates at once
+    # (cutoff_index > 1): A covers 1..4, and B, C, D can all pick up
+    # from there without a gap.
+    listing_a = [1, 2, 3, 4]
+    listing_b = [5, 6, 7, 8, 9, 10]
+    listing_c = [4, 5, 6, 7, 8, 9, 10]
+    listing_d = [5, 6, 7, 8, 9, 10, 20]
+    # The function itself only ever deals with integer indices (that's the
+    # required return type, List[Tuple[int, int]]) -- these letter labels
+    # are purely for us to read the output more easily, not something the
+    # program tracks internally.
+    labels = ["A", "B", "C", "D"]
+    multi_match_result = sol.splitStayPairs(
+        [listing_a, listing_b, listing_c, listing_d], 1, 10
+    )
+    print(multi_match_result)  # expect [(0, 1), (0, 2), (0, 3)]
+    print([(labels[x], labels[y]) for x, y in multi_match_result])
+    # expect [('A', 'B'), ('A', 'C'), ('A', 'D')]
