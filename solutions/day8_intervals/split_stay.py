@@ -73,6 +73,11 @@ class Solution:
             # A suffix listing qualifies as a partner when its suffix starts
             # at most one day after this prefix's reach ends (no gap).
             max_allowed_suffix_start = prefix_reach_day + 1
+            # cutoff_index is just a count of qualifying candidates -- it can
+            # be 0 (no match), 1, or as high as len(suffix_start_days) if
+            # every suffix candidate happens to start early enough. That's
+            # why we still loop over the whole slice below instead of only
+            # handling a single match.
             cutoff_index = bisect_right(suffix_start_days, max_allowed_suffix_start)
             for suffix_listing_id in suffix_listing_ids[:cutoff_index]:
                 if suffix_listing_id != prefix_listing_id:
