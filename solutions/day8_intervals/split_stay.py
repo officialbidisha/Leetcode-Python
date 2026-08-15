@@ -79,7 +79,9 @@ class Solution:
             # why we still loop over the whole slice below instead of only
             # handling a single match.
             cutoff_index = bisect_right(suffix_start_days, max_allowed_suffix_start)
-            for suffix_listing_id in suffix_listing_ids[:cutoff_index]:
+            for i in range(cutoff_index):
+                # [7 in our case]
+                suffix_listing_id = suffix_listing_ids[i]
                 if suffix_listing_id != prefix_listing_id:
                     # Store pairs in canonical (min, max) order so a listing
                     # that covers the whole range (appearing in both
