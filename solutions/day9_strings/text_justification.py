@@ -72,8 +72,13 @@ class Solution:
 if __name__ == "__main__":
     sol = Solution()
 
+    def show(lines):
+        for line in lines:
+            print(f"|{line}|")
+        print()
+
     words1 = ["This", "is", "an", "example", "of", "text", "justification."]
-    print(sol.fullJustify(words1, 16))
+    show(sol.fullJustify(words1, 16))
     # expect [
     #   "This    is    an",
     #   "example  of text",
@@ -81,7 +86,7 @@ if __name__ == "__main__":
     # ]
 
     words2 = ["What", "must", "be", "acknowledgment", "shall", "be"]
-    print(sol.fullJustify(words2, 16))
+    show(sol.fullJustify(words2, 16))
     # expect [
     #   "What   must   be",
     #   "acknowledgment  ",
@@ -93,4 +98,4 @@ if __name__ == "__main__":
         "explain", "to", "a", "computer.", "Art", "is", "everything", "else",
         "we", "do",
     ]
-    print(sol.fullJustify(words3, 20))
+    show(sol.fullJustify(words3, 20))
