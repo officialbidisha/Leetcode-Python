@@ -23,6 +23,11 @@ python3 solutions/day1_basics/two_sum.py
 
 More folders get filled in as practice continues.
 
+## Prep notes
+
+[`GENERIC_DSA_CHEATSHEET.md`](GENERIC_DSA_CHEATSHEET.md) — a generic senior
+SWE 45-min coding-round prep doc (problem list, patterns, timed study plan).
+
 ## Requirements
 
 Python 3, standard library only — no external dependencies.
