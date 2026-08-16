@@ -1,6 +1,6 @@
 """
 Print Sentences as Table — domain-flavored variant of Text Justification
-(LC 68), logged by prachub as an Airbnb screen question (Feb 2026).
+(LC 68), seen on recent company-tagged interview reports.
 
 Given a list of words and a fixed tableWidth, lay them out as rows of a
 table: pack words into a row greedily (never split a word across rows,
