@@ -107,32 +107,42 @@ Recognise the shape, sketch the approach, move on. Only code these if Tier 1 is 
 
 ---
 
-## 5. Your 3-day plan
+## 5. Your sprint plan (compressed — updated 2026-08-16)
 
-Your profile: 641 solved (154E / 378M / 109H), DP marked Advanced (111), strong
-hash/DFS/BFS. But **12 submissions in the past year, 4 active days.** So the risk
-is *rust and Python fluency under a timer*, not concepts. Plan accordingly — favour
-timed reps over reading.
+Interview timeline moved up — now roughly 3-4 prep sessions left at ~1-2
+hrs/day. Re-prioritized below against **actual** progress (not stale
+checkboxes elsewhere):
 
-### Day 1 — intervals, simulation, string precision
-- Split-stay (§3). Write it cold, no hints. 45 min timer.
-- LC 1235 Maximum Profit in Job Scheduling. 35 min.
-- LC 68 Text Justification. 40 min. Do it twice if you get it wrong — this problem
-  is entirely about not fumbling `+ 1`s while someone watches.
+**Already solid:** Two Sum, Contains Duplicate (+II), Group Anagrams, Top K
+Frequent, Split-stay, Text Justification (done twice), Print Sentences as
+Table (Text Justification variant, extra rep).
 
-### Day 2 — graphs, BFS-with-state, iterators
-- LC 1298 Maximum Candies from Boxes. 35 min.
-- LC 755 Pour Water. 30 min.
-- LC 787 Cheapest Flights Within K Stops. 30 min.
-- LC 341 Nested List Iterator, then add `remove()`. 30 min.
-- LC 269 Alien Dictionary. 30 min.
+**Highest risk — zero progress so far:** LC 1298 (Tier 1 #5 above) and LC 631.
+Note the discrepancy: this file's aggregator tiering puts 631 in Tier 2
+("skim, don't grind" — §4), but a separate frequency count from a tagged-
+question list calls 1298 and 631 "tied as the most-reported items."
+Trusting the more concrete signal — treat 631 as must-do, not skim.
 
-### Day 3 — pressure + polish
-- One full 45-min mock under real conditions: talk out loud, no IDE autocomplete,
-  no running until you think you're done. Pick one you *haven't* seen from Tier 2.
-- LC 336 Palindrome Pairs + LC 39 Combination Sum (menu framing).
-- Re-do Text Justification and split-stay from scratch. If either takes >30 min
-  the second time, that's your gap.
+### Session 1 (today) — finish what's in flight, hit the top untouched risk
+- LC 1235 Maximum Profit in Job Scheduling — finish (already in progress). 35 min.
+- LC 1298 Maximum Candies from Boxes — highest-priority untouched item. 35 min.
+
+### Session 2 — the other flagged-critical item, plus cheap wins
+- LC 631 Design Excel Sum Formula. 35-40 min. Lowest acceptance rate (39.5%)
+  of anything on this list — expect more edge cases (circular refs, ranges)
+  than the Hard label alone suggests.
+- Single Number, Happy Number — closes out Day 1's last two stubs. 10 min each.
+
+### Session 3 — must-know two-pointer / sliding-window reps
+- LC 76 Minimum Window Substring. 30 min.
+- LC 42 Trapping Rain Water. 30 min.
+
+### Day before (if it lands) — pressure + polish, no new problems
+- One full 45-min mock under real conditions: talk out loud, no IDE
+  autocomplete, no running until you think you're done.
+- Timed cold re-solve of 2-3 already-done problems, 25 min each.
+- Last hour: review your syntax/idiom notes and "Rules for the reps" below,
+  not new problems.
 
 ### Rules for the reps
 - **Type in a plain editor.** CoderPad has no autocomplete and no Copilot.
