@@ -22,21 +22,20 @@ class Solution:
         wordCount = 0
 
         def distributeSpace(currentSentence):
-            totalLength = 0
-            totalWord = len(currentSentence)
-            finalSentence = ""
-            for word in currentSentence:
-                totalLength += len(word)
+            print("Current Sentence", currentSentence)
+            totalLength = sum(len(word) for word in currentSentence)
             remainingSpaces = maxWidth - totalLength
-            gaps = totalWord - 1
+            gaps = len(currentSentence) - 1
+
+            # single word on the line: no gaps to divide into, so it's just
+            # the word plus all the slack as trailing padding
             if gaps == 0:
-                # single word on the line: no gaps to distribute into (avoids
-                # divide-by-zero below), so dump all leftover space after the word
-                equalDistribution = remainingSpaces
-                extra = 0
-            else:
-                equalDistribution = remainingSpaces // gaps
-                extra = remainingSpaces % gaps
+                return currentSentence[0] + " " * remainingSpaces
+
+            equalDistribution = remainingSpaces // gaps
+            extra = remainingSpaces % gaps
+
+            finalSentence = ""
             # words before the last one: equal share of spaces, leftmost `extra` gaps get +1
             for i in range(gaps):
                 # gap indices run left to right (0, 1, 2, ...), and extra < gaps always,
@@ -47,10 +46,6 @@ class Solution:
 
             # the last word, handled separately: no trailing gap-space follows it
             finalSentence += currentSentence[-1]
-
-            # single-word line: no gaps existed above, so pad after the word here
-            if gaps == 0:
-                finalSentence += " " * equalDistribution
             return finalSentence
 
         for word in words:
@@ -66,6 +61,7 @@ class Solution:
                 currentSentence = [word]
 
         # flush the last line: left-justified, single spaces, padded on the right
+        print("Last Sentence", currentSentence)
         lastLine = " ".join(currentSentence)
         lastLine += " " * (maxWidth - len(lastLine))
         res.append(lastLine)
