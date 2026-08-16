@@ -17,7 +17,60 @@ from typing import List
 
 class Solution:
     def fullJustify(self, words: List[str], maxWidth: int) -> List[str]:
-        pass
+        res = []
+        currentSentence = []
+        wordCount = 0
+
+        def distributeSpace(currentSentence):
+            totalLength = 0
+            totalWord = len(currentSentence)
+            finalSentence = ""
+            for word in currentSentence:
+                totalLength += len(word)
+            remainingSpaces = maxWidth - totalLength
+            gaps = totalWord - 1
+            if gaps == 0:
+                # single word on the line: no gaps to distribute into (avoids
+                # divide-by-zero below), so dump all leftover space after the word
+                equalDistribution = remainingSpaces
+                extra = 0
+            else:
+                equalDistribution = remainingSpaces // gaps
+                extra = remainingSpaces % gaps
+            # words before the last one: equal share of spaces, leftmost `extra` gaps get +1
+            for i in range(gaps):
+                # gap indices run left to right (0, 1, 2, ...), and extra < gaps always,
+                # so "i < extra" is only true for the first `extra` gaps — i.e. the leftmost
+                # ones. every gap gets the base amount; those leftmost gaps get +1 on top.
+                spacesHere = equalDistribution + (1 if i < extra else 0)
+                finalSentence += currentSentence[i] + " " * spacesHere
+
+            # the last word, handled separately: no trailing gap-space follows it
+            finalSentence += currentSentence[-1]
+
+            # single-word line: no gaps existed above, so pad after the word here
+            if gaps == 0:
+                finalSentence += " " * equalDistribution
+            return finalSentence
+
+        for word in words:
+            currentWordLength = len(word)
+            currentSentenceLength = sum(len(w) for w in currentSentence)
+            neededSpaces = len(currentSentence)  # one space before this word, unless line is empty # how many words already sitting in the line: how many single space gaps
+            if currentWordLength + neededSpaces + currentSentenceLength <= maxWidth:
+                currentSentence.append(word)
+                wordCount += 1
+            else:
+                res.append(distributeSpace(currentSentence))
+                wordCount = 1
+                currentSentence = [word]
+
+        # flush the last line: left-justified, single spaces, padded on the right
+        lastLine = " ".join(currentSentence)
+        lastLine += " " * (maxWidth - len(lastLine))
+        res.append(lastLine)
+
+        return res
 
 
 if __name__ == "__main__":
