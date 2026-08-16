@@ -1,7 +1,14 @@
 # Leetcode-Python
 
+![Python](https://img.shields.io/badge/python-3.x-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Solutions](https://img.shields.io/badge/solutions-10%20done%20%2F%206%20todo-brightgreen)
+![Stdlib only](https://img.shields.io/badge/dependencies-stdlib%20only-lightgrey)
+
 Python solutions to LeetCode-style DSA problems, written while learning
-Python (coming from JavaScript) through hands-on practice.
+Python (coming from JavaScript) through hands-on, test-driven practice —
+no tutorials, just solving problems and checking the output against
+hand-traced expected results.
 
 ## Structure
 
@@ -55,3 +62,7 @@ SWE 45-min coding-round prep doc (problem list, patterns, timed study plan).
 ## Requirements
 
 Python 3, standard library only — no external dependencies.
+
+## License
+
+[MIT](LICENSE)
